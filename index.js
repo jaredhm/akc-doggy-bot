@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const auth = require('./lib/auth');
+const install = require('./lib/install');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,6 +25,12 @@ app.get('/complete_auth', function(req, res) {
         res.status(403).send(`Authentication failed with error: ${body.error}`);
       } else {
         res.status(200).send('Authentication succeeded');
+        install.bot(
+          body.bot,
+          body.access_token,
+          body.scope.split(','),
+          body.team_id
+        );
       }
     })
     .catch(function(err) {
