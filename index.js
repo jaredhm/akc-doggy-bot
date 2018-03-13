@@ -18,7 +18,17 @@ app.get('/auth', function(req, res) {
 });
 
 app.get('/complete_auth', function(req, res) {
-  res.status(200).send(auth.completeAuth(req.query.code));
+  auth.completeAuth(req.query.code)
+    .then(function(body) {
+      if(!body.ok) {
+        res.status(200).send(`Authentication failed with error: ${body.error}`);
+      } else {
+        res.status(200).send('Authentication succeeded');
+      }
+    })
+    .catch(function(err) {
+      res.status(500).send(`Internal service error: ${err}`);
+    });
 });
 
 app.listen(PORT, function () { console.log(`Listening on ${ PORT }`) });
