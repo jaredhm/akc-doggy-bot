@@ -14,7 +14,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/auth', function(req, res) {
-  res.status(200).send(auth.getAuthPage());
+  res.status(200).send(auth.authPage());
+});
+
+app.get('/complete_auth', function(req, res) {
+  res.status(200).send(auth.completeAuth(req.query.code));
 });
 
 app.listen(PORT, function () { console.log(`Listening on ${ PORT }`) });
