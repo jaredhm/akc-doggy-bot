@@ -21,7 +21,7 @@ app.get('/complete_auth', function(req, res) {
   auth.completeAuth(req.query.code)
     .then(function(body) {
       if(!body.ok) {
-        res.status(200).send(`Authentication failed with error: ${body.error}`);
+        res.status(403).send(`Authentication failed with error: ${body.error}`);
       } else {
         res.status(200).send('Authentication succeeded');
       }
