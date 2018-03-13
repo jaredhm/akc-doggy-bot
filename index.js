@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/auth', function(req, res) {
-  req.status(200).send(auth.getAuthPage());
+  res.status(200).send(auth.getAuthPage());
 });
 
 app.listen(PORT, function () { console.log(`Listening on ${ PORT }`) });
