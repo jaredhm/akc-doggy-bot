@@ -10,7 +10,7 @@ const auth = require('./lib/auth');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.send('Foo!');
+  res.redirect('/auth');
 });
 
 app.get('/auth', function(req, res) {
