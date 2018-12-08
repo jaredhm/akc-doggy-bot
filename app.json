@@ -2,7 +2,7 @@
   "name": "AKC Doggy Bot",
   "description": "A slack bot that returns links to random dog breeds currated by the American Kennel Club",
   "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "logo": "https://cdn.jsdelivr.net/gh/heroku/node-js-getting-started@master/public/node.svg",
   "keywords": ["node", "express", "heroku", "akc", "dogs"],
   "image": "heroku/nodejs"
 }
